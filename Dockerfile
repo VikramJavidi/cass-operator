@@ -21,6 +21,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -o manager 
 
 # Build the UBI image
 FROM redhat/ubi8-micro:latest
+RUN yum update && yum -y install sysstat
 
 ARG VERSION
 
